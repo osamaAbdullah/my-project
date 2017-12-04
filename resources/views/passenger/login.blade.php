@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="ui container">
-        <form class="ui form segment"method="POST"action="{{ route('login') }}">
+        <form class="ui form segment"method="POST"action="{{ route('passengers.login') }}">
             {{ csrf_field() }}
 
             <div class="field">
@@ -28,13 +28,13 @@
                     <div class="ui green submit button fluid">Sign In</div>
                 </div>
                 <div class="field">
-                    <a class="ui primary button fluid"href="{{route('register')}}">Sign Up</a>
+                    <a class="ui primary button fluid"href="{{route('passengers.register')}}">Sign Up</a>
                 </div>
             </div>
 
             <div class="ui right aligned grid">
                 <div class="left floated right aligned sixteen wide column">
-                    <a href="{{ route('password.request') }}">Forgot Your Password?</a>
+                    <a href="#">Forgot Your Password?</a>
                 </div>
             </div>
         </form>

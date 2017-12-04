@@ -18,7 +18,7 @@ class CreateDriverTable extends Migration
             $table->string('emergency_phone_number')->nullable()->unique();
             $table->string('email')->unique();
             $table->string('emergency_email')->unique()->nullable();
-            $table->integer('age');
+            $table->date('birthday');
             $table->boolean('gender');
             $table->integer('weight')->nullable();
             $table->integer('height')->nullable();

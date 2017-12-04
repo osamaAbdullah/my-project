@@ -1,13 +1,12 @@
 @extends('app')
 
-@section('title','Register')
 @section('content')
     <div class="ui container">
-        <form class="ui form piled segment"method="POST"action="{{ route('register') }}">
+        <form class="ui form piled segment"method="POST"action="register">
             {{ csrf_field() }}
             <h4 class="ui horizontal divider header">
                 <i class="signup icon"></i>
-                Registration
+               Passenger Registration
             </h4>
             <br>
             <div class="three fields">
@@ -31,12 +30,12 @@
                     <input placeholder="Email"name="email" type="text">
                 </div>
                 <div class="field">
-                    <label>User name</label>
-                    <input placeholder="User-name"name="user_name" type="text">
-                </div>
-                <div class="field">
                     <label>Phone Number</label>
                     <input placeholder="0000 000 0000"name="phone_number" type="text">
+                </div>
+                <div class="field">
+                    <label>Address</label>
+                    <input placeholder="Address"name="address" type="text">
                 </div>
             </div>
             <div class="ui divider" style="margin:30px 0 20px 0"></div>
@@ -50,19 +49,22 @@
                     </select>
                 </div>
                 <div class="field">
-                    <label>age</label>
-                    <input name="age"type="text">
+                    <label>Birthday</label>
+                    <input name="birthday"type="text"placeholder="Birthday">
                 </div>
             </div>
-
+            <div class="field">
+                <label>Bio</label>
+                <input name="bio"type="text"placeholder="Bio">
+            </div>
             <div class="two fields">
                 <div class="field">
                     <label>Password</label>
-                    <input name="password" type="password">
+                    <input name="password"id="password" type="password">
                 </div>
                 <div class="field">
                     <label>Confirm Password</label>
-                    <input type="password"name="password_confirmation">
+                    <input type="password"name="password_confirmation"id="password-confirm">
                 </div>
             </div>
 
@@ -81,10 +83,11 @@
 @endsection
 @section('scripts')
     <script>
+        $('.ui.dropdown').dropdown();
         $('.ui.form').form({
             on     : 'change',
             inline : true,
-            fields: {
+           /* fields: {
                 first_name: {
                     identifier: 'first_name',
                     rules: [
@@ -198,7 +201,7 @@
                         }
                     ]
                 }
-            }
+            }*/
         });
     </script>
 @stop

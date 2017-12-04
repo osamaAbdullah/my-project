@@ -171,8 +171,39 @@
                 <a class="item">Company</a>
                 <a class="item">Careers</a>
                 <div class="right item">
-                    <a class="ui inverted button">Log in</a>
-                    <a class="ui inverted button">Sign Up</a>
+
+                    @if (Auth::guest())
+                        <a class="ui inverted button"href="{{route('passengers.login')}}">p Log in</a>
+                        <a class="ui inverted button"href="{{route('passengers.register')}}">p Sign Up</a>
+                        <a class="ui inverted button"href="{{route('drivers.login')}}">D Log in</a>
+                        <a class="ui inverted button"href="{{route('drivers.register')}}">D Sign Up</a>
+                    @else
+                        @if (Auth::guard('web')->check())
+                        <strong>Passenger </strong>
+                            <a href="{{route('passengers.logout')}}"
+                               onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                                 Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('passengers.logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        @endif
+                        @if (Auth::guard('driver')->check())
+                          <strong>Driver</strong>
+                                <a href="{{route('drivers.logout')}}"
+                                   onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('drivers.logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                        @endif
+                    @endif
+
+
+
                 </div>
             </div>
         </div>

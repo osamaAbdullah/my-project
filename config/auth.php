@@ -3,17 +3,17 @@
 return [
 
     'defaults' => [
-        'guard' => 'passenger',
+        'guard' => 'web',
         'passwords' => 'passengers',
     ],
 
     'guards' => [
-        'passenger' => [
+        'web' => [
             'driver' => 'session',
             'provider' => 'passengers',
         ],
 
-        'passenger-api' => [
+        'api' => [
             'driver' => 'token',
             'provider' => 'passengers',
         ],

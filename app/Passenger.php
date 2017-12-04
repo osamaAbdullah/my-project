@@ -18,18 +18,19 @@ class Passenger extends Authenticatable
         'emergency_phone_number',
         'email',
         'emergency_email',
-        'age',
+        'birthday',
         'gender',
         'weight',
         'height',
         'bio',
         'address',
-        'profile_picture'
+        'profile_picture',
+        'password',
     ];
 
 
     protected $hidden = [
         'password',
-        'remember_token'
+        'remember_token',
     ];
 }
