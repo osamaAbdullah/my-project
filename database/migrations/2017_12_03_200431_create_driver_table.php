@@ -27,7 +27,7 @@ class CreateDriverTable extends Migration
             $table->string('address')->nullable();
             $table->string('profile_picture')->nullable();
             $table->string('vehicle_picture')->nullable();
-            $table->string('type_of_vehicle')->nullable();
+            $table->string('type_of_vehicle');
             $table->integer('max_pass')->nullable();
             $table->string('password');
             $table->rememberToken();

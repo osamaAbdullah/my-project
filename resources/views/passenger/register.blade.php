@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="ui container">
-        <form class="ui form piled segment"method="POST"action="register">
+        <form class="ui form piled segment"method="POST">
             {{ csrf_field() }}
             <h4 class="ui horizontal divider header">
                 <i class="signup icon"></i>
@@ -60,11 +60,11 @@
             <div class="two fields">
                 <div class="field">
                     <label>Password</label>
-                    <input name="password"id="password" type="password">
+                    <input name="password"type="password">
                 </div>
                 <div class="field">
                     <label>Confirm Password</label>
-                    <input type="password"name="password_confirmation"id="password-confirm">
+                    <input type="password"name="password_confirmation">
                 </div>
             </div>
 

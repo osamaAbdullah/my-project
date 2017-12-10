@@ -34,7 +34,7 @@
 
             <div class="ui right aligned grid">
                 <div class="left floated right aligned sixteen wide column">
-                    <a href="#">Forgot Your Password?</a>
+                    <a href="{{route('passengers.password.request')}}">Forgot Your Password?</a>
                 </div>
             </div>
         </form>

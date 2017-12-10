@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Notifications\DriverResetPasswordNotification;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -9,26 +10,22 @@ class Driver extends Authenticatable
 {
     use Notifiable;
 
+    protected $guarded='driver';
 
     protected $fillable = [
         'first_name',
         'middle_name',
         'last_name' ,
         'phone_number',
-        'emergency_phone_number',
         'email',
-        'emergency_email',
-        'age',
+        'birthday',
         'gender',
-        'weight',
-        'height',
         'bio',
         'vehicle_bio',
         'address',
-        'profile_picture',
-        'vehicle_picture',
         'type_of_vehicle',
-        'max_pass'
+        'max_pass',
+        'password',
     ];
 
 
@@ -36,4 +33,9 @@ class Driver extends Authenticatable
         'password',
         'remember_token'
     ];
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new DriverResetPasswordNotification($token));
+    }
 }

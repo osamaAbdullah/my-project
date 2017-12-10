@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Notifications\PassengerResetPasswordNotification;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -9,6 +10,7 @@ class Passenger extends Authenticatable
 {
     use Notifiable;
 
+    protected $guarded='web';
 
     protected $fillable = [
         'first_name',
@@ -33,4 +35,10 @@ class Passenger extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PassengerResetPasswordNotification($token));
+    }
+
 }

@@ -3,7 +3,7 @@
 @section('title','Register')
 @section('content')
     <div class="ui container">
-        <form class="ui form piled segment"method="POST"action="{{ route('register') }}">
+        <form class="ui form piled segment"method="POST">
             {{ csrf_field() }}
             <h4 class="ui horizontal divider header">
                 <i class="signup icon"></i>
@@ -31,13 +31,14 @@
                     <input placeholder="Email"name="email" type="text">
                 </div>
                 <div class="field">
-                    <label>User name</label>
-                    <input placeholder="User-name"name="user_name" type="text">
-                </div>
-                <div class="field">
                     <label>Phone Number</label>
                     <input placeholder="0000 000 0000"name="phone_number" type="text">
                 </div>
+                <div class="field">
+                    <label>Birthday</label>
+                    <input placeholder="Birthday"name="birthday"type="text">
+                </div>
+
             </div>
             <div class="ui divider" style="margin:30px 0 20px 0"></div>
             <div class="two fields">
@@ -50,8 +51,33 @@
                     </select>
                 </div>
                 <div class="field">
-                    <label>age</label>
-                    <input name="age"type="text">
+                    <label>Type of vehicle</label>
+                    <select class="ui dropdown"name="type_of_vehicle">
+                        <option value="">Type of vehicle</option>
+                        <option value="0">Taxi</option>
+                        <option value="1">Bus</option>
+                        <option value="2">Mini-Bus</option>
+                        <option value="2">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <label>Bio</label>
+                <input name="bio"type="text"placeholder="Bio">
+            </div>
+            <div class="field">
+                <label>Vehicle-Bio</label>
+                <input name="vehicle_bio"type="text"placeholder="Bio">
+            </div>
+
+            <div class="two fields">
+                <div class="field">
+                    <label>Address</label>
+                    <input name="address"type="text"placeholder="Address">
+                </div>
+                <div class="field">
+                    <label>Max-Passenger</label>
+                    <input name="max_pass"type="number"placeholder="Max-Passenger">
                 </div>
             </div>
 
@@ -81,10 +107,11 @@
 @endsection
 @section('scripts')
     <script>
+        $('.ui.dropdown').dropdown();
         $('.ui.form').form({
             on     : 'change',
             inline : true,
-            fields: {
+            /*fields: {
                 first_name: {
                     identifier: 'first_name',
                     rules: [
@@ -198,7 +225,7 @@
                         }
                     ]
                 }
-            }
+            }*/
         });
     </script>
 @stop

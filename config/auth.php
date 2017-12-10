@@ -26,7 +26,6 @@ return [
             'driver' => 'token',
             'provider' => 'drivers',
         ],
-
     ],
 
     'providers' => [

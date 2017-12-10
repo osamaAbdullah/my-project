@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Passenger\Auth;
 
 use App\Passenger;
 use App\Http\Controllers\Controller;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -20,17 +18,9 @@ class RegisterController extends Controller
         return view('passenger.register');
     }
 
-    public function register(Request $request)
+    protected function guard()
     {
-
-        $this->validator($request->all())->validate();
-
-        event(new Registered($user = $this->create($request->all())));
-
-        Auth::guard('web')->login($user);
-
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+        return Auth::guard('web');
     }
 
     protected $redirectTo = '/';

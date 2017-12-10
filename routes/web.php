@@ -2,9 +2,6 @@
 
 Route::get('/',function(){return view('index');});
 
-
-
-
 Route::prefix('passengers')->group(function() {
     // Authentication Routes...
     Route::get('login', 'Passenger\Auth\LoginController@showLoginForm')->name('passengers.login');
